@@ -2,7 +2,8 @@
 
 This extension works with single or multiple MAX7219 8x8 LED matrix display modules.
 
-To import this extension, go to Advanced -> +extension and enter "MAX7219" in the search box, or copy/paste [https://github.com/r00b1nh00d/pxt-Max7219](https://github.com/r00b1nh00d/pxt-Max7219). Press enter and click the extension.
+To import this extension, go to Advanced -> +extension and enter "MAX7219" in the search box, 
+or copy/paste [https://github.com/MKleinSB/pxt-MAX7219_8x8](https://github.com/MKleinSB/pxt-MAX7219_8x8). Press enter and click the extension.
 
 
 
