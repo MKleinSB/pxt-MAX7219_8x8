@@ -2,7 +2,7 @@
  * MakeCode editor extension for single or multiple MAX7219 8x8 matrix LED modules
  * by Alan Wang https://github.com/alankrantas/pxt-MAX7219_8x8
  * changed for Calliope mini by r00b1nh00d
- * deutsche Umlaute by M. Klein
+ * deutsche Umlaute und Imageblock by M. Klein 2021
  */
 
 //% weight=100 color=#006d19 icon="\uf00a" block="MAX7219 8x8"
@@ -16,7 +16,7 @@ namespace max7219_matrix {
     const _SCANLIMIT = 11 // scan limit (number of scanned digits)
     const _SHUTDOWN = 12 // turn on (1) or off (0)
     const _DISPLAYTEST = 15 // force all LEDs light up, no usage here
-//C16 for Calliope
+    //C16 for Calliope
     let _pinCS = DigitalPin.C16 // LOAD pin, 0=ready to receive command, 1=command take effect
     let _matrixNum = 1 // number of MAX7219 matrix linked in the chain
     let _displayArray: number[] = [] // display array to show accross all matrixs
@@ -475,7 +475,34 @@ namespace max7219_matrix {
             }
         }
     }
+    //% block=Image 8x8"
+    //% imageLiteral=1
+    //% imageLiteralColumns=8
+    //% imageLiteralRows=8
+    //% shim=images::createImage
+    //% group="4. Set custom LED pattern on matrixs"
+    export function matrix8x8(i: string): Image {
+        const im = <Image><any>i;
+        return im
+    }
 
+    //% block="write image to Matrix %index %im=variables_get(image)"
+    //% index.defl=1 index.min=1 index.max=7 group="4. Set custom LED pattern on matrixs"
+    export function writeImage2matrix (index:number, im: Image) {
+     let line=0   
+    for (let y = 0; y <= im.height() - 1; y++) {
+        for (let x = 0; x <= im.width() - 1; x++) {
+            if (im.pixel(x, y)) {
+                line=(line << 1) + 1
+                 } else {
+                 line=(line << 1)  
+                }
+                _registerForOne(_DIGIT[im.height()-1-y], line, _matrixNum-index)
+            }
+            line=0
+        }
+    }
+    
     /**
     * Set LEDs of a specific MAX7219s to a pattern from a 8x8 number matrix variable (index 0=farthest on the chain)
     */
