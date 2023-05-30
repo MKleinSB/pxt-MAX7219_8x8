@@ -7,8 +7,6 @@
     },
     "files": [
         "README.md",
-        "main.blocks",
-        "main.ts",
         "MAX7219.ts"
     ],
     "testFiles": [
