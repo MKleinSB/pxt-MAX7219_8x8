@@ -13,14 +13,10 @@
         "test.ts"
     ],
     "public": true,
-    "targetVersions": {
-        "target": "4.0.29",
-        "targetId": "calliopemini"
-    },
-    "supportedTargets": [
-        "calliopemini"
+  "supportedTargets": [
+        "microbit",
+        "calliope"
     ],
-    "preferredEditor": "tsprj",
     "yotta": {
         "config": {
             "microbit-dal": {
