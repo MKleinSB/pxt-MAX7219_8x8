@@ -1,6 +1,6 @@
 {
     "name": "pxt-max7219_8x8",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "description": "",
     "dependencies": {
         "core": "*"
@@ -16,14 +16,5 @@
   "supportedTargets": [
         "microbit",
         "calliope"
-    ],
-    "yotta": {
-        "config": {
-            "microbit-dal": {
-                "bluetooth": {
-                    "enabled": 0
-                }
-            }
-        }
-    }
+    ]
 }
