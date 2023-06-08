@@ -16,7 +16,6 @@ namespace max7219_matrix {
     const _SCANLIMIT = 11 // scan limit (number of scanned digits)
     const _SHUTDOWN = 12 // turn on (1) or off (0)
     const _DISPLAYTEST = 15 // force all LEDs light up, no usage here
-    //C16 for Calliope
     let _pinCS = DigitalPin.C16 // LOAD pin, 0=ready to receive command, 1=command take effect
     let _matrixNum = 1 // number of MAX7219 matrix linked in the chain
     let _displayArray: number[] = [] // display array to show accross all matrixs
@@ -120,6 +119,23 @@ namespace max7219_matrix {
             }
         }
         return matrix
+    }
+
+    /**
+    * Return a empty 8x8 number matrix variable
+    */
+    //% block="Empty 8x8 pattern" group="4. Set custom LED pattern on matrixs"
+    export function getEmptyMatrix() {
+        return [
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+        ]
     }
 
     /**
@@ -524,40 +540,6 @@ namespace max7219_matrix {
                 }
             }
         }
-    }
-
-    /**
-    * Return a empty 8x8 number matrix variable
-    */
-    //% block="Empty 8x8 pattern" group="4. Set custom LED pattern on matrixs"
-    export function getEmptyMatrix() {
-        return [
-            [0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0],
-        ]
-    }
-
-    /**
-    * Return a full 8x8 number matrix variable
-    */
-    //% block="Full 8x8 pattern" group="4. Set custom LED pattern on matrixs" advanced=true
-    export function getFullMatrix() {
-        return [
-            [1, 1, 1, 1, 1, 1, 1, 1],
-            [1, 1, 1, 1, 1, 1, 1, 1],
-            [1, 1, 1, 1, 1, 1, 1, 1],
-            [1, 1, 1, 1, 1, 1, 1, 1],
-            [1, 1, 1, 1, 1, 1, 1, 1],
-            [1, 1, 1, 1, 1, 1, 1, 1],
-            [1, 1, 1, 1, 1, 1, 1, 1],
-            [1, 1, 1, 1, 1, 1, 1, 1],
-        ]
     }
 
     /**

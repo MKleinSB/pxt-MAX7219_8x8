@@ -13,8 +13,9 @@
         "test.ts"
     ],
     "public": true,
-  "supportedTargets": [
-        "microbit",
-        "calliope"
+    "supportedTargets": [
+        "calliope",
+        "calliopemini",
+        "microbit"
     ]
 }
